@@ -3,36 +3,37 @@ package models;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "users")
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false, name = "employee_id")
+    @Column(nullable = false, name = "employee_id")
     private int employeeId;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column (unique = true)
+    @Column(unique = true)
     private String email;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "role_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "department_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
     private Department department;
 
-    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Checkout> checkouts;
 
-    public User() {}
+    public User() {
+    }
 
     public User(Long id, int employeeId, String name, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
         this.id = id;

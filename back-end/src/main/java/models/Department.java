@@ -3,13 +3,13 @@ package models;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "departments")
+@Table(name = "departments")
 public class Department {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column (nullable = false, name = "department_name", unique = true)
+    @Column(nullable = false, name = "department_name", unique = true)
     private String departmentName;
 
     public Department() {
