@@ -1,6 +1,6 @@
 package enums;
 
-public enum ammo {
+public enum ammoType {
 
     //I used AI for this in order to optimize the time
 
@@ -39,7 +39,7 @@ public enum ammo {
 
     private final String displayName;
 
-    ammo(String displayName) {
+    ammoType(String displayName) {
         this.displayName = displayName;
     }
 
