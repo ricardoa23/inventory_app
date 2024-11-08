@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 @Table(name = "weapons")
 public class Weapon extends Item {
     // FIXME: this needs to get updated based on route taken if ammo for it is going to be issued and tracked as well
+    // TODO: Add a certification for checkout users have to certified in order to checkout the weapon
     @Column
     private Boolean longGun;
 
