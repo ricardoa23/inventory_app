@@ -37,8 +37,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, int employeeId, String name, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
-        this.id = id;
+    public User(int employeeId, String name, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
         this.employeeId = employeeId;
         this.name = name;
         this.email = email;
@@ -48,8 +47,7 @@ public class User {
         this.checkouts = checkouts;
     }
 
-    public User(Long id, int employeeId, String name, String email, String password, Role role, Department department) {
-        this.id = id;
+    public User(int employeeId, String name, String email, String password, Role role, Department department) {
         this.employeeId = employeeId;
         this.name = name;
         this.email = email;
