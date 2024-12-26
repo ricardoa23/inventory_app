@@ -5,54 +5,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.VehicleRepository;
 
-import java.util.List;
-
-//FIXME: I need to Refactor this code in order to face the
-
 @Service
-public class VehicleService {
-private final VehicleRepository vehicleRepository;
+public class VehicleService extends BaseService<Vehicle, Long> {
 
-@Autowired
-    public VehicleService(VehicleRepository vehicleRepository) {
-    this.vehicleRepository = vehicleRepository;
+    private final VehicleRepository vehicleRepository;
+
+    @Autowired
+    public VehicleService (VehicleRepository vehicleRepository) {
+        this.vehicleRepository =  vehicleRepository;
     }
 
-    public List<Vehicle> getAllVehicles() {
-    return vehicleRepository.findAll();
+    @Override
+    protected VehicleRepository getRepository() {
+        return vehicleRepository;
     }
 
-    //CRUD for vehicles
-
-    public Vehicle getVehicleByID(Long id) {
-        return vehicleRepository.findById(id).orElse(null);
+    @Override
+    protected  Vehicle updateEntity(Vehicle existingVehicle, Vehicle vehicleDetails) {
+        existingVehicle.setMake(vehicleDetails.getMake());
+        existingVehicle.setModel(vehicleDetails.getModel());
+        existingVehicle.setYear(vehicleDetails.getYear());
+        existingVehicle.setLatestInspection(vehicleDetails.getLatestInspection());
+        existingVehicle.setNextServiceInspection(vehicleDetails.getNextServiceInspection());
+        existingVehicle.setAdditionalTrainingRequirements(vehicleDetails.isAdditionalTrainingRequirements());
+        return existingVehicle;
     }
-
-    public Vehicle createVehicle(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
-    }
-
-    public Vehicle updateVehicle(Long id, Vehicle vehicleDetails) {
-        return vehicleRepository.findById(id).map( vehicle -> {
-            vehicle.setMake(vehicleDetails.getMake());
-            vehicle.setModel(vehicleDetails.getModel());
-            vehicle.setYear(vehicleDetails.getYear());
-            vehicle.setLatestInspection(vehicleDetails.getLatestInspection());
-            vehicle.setNextServiceInspection(vehicleDetails.getNextServiceInspection());
-            vehicle.setAdditionalTrainingRequirements(vehicleDetails.isAdditionalTrainingRequirements());
-            return vehicleRepository.save(vehicle);
-                }
-        ).orElse(null);
-    }
-
-    public boolean deleteVehicle(Long id) {
-        if (vehicleRepository.existsById(id)) {
-            vehicleRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
 }
