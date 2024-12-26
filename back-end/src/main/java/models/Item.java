@@ -14,7 +14,7 @@ public class Item {
     private String name;
 
     @Column(name = "serial_number")
-    private String serial_number;
+    private String serialNumber;
 
     @Column(nullable = false, name = "checkout_status")
     private checkoutStatus status;
@@ -30,9 +30,9 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, String serial_number, checkoutStatus status, Categories categoryId, Department departmentId) {
+    public Item(String name, String serialNumber, checkoutStatus status, Categories categoryId, Department departmentId) {
         this.name = name;
-        this.serial_number = serial_number;
+        this.serialNumber = serialNumber;
         this.status = status;
         this.categoryId = categoryId;
         this.departmentId = departmentId;
@@ -54,12 +54,12 @@ public class Item {
         this.name = name;
     }
 
-    public String getSerial_number() {
-        return serial_number;
+    public String getSerialNumber() {
+        return serialNumber;
     }
 
-    public void setSerial_number(String serial_number) {
-        this.serial_number = serial_number;
+    public void setSerialNumber(String serial_number) {
+        this.serialNumber = serial_number;
     }
 
     public checkoutStatus getStatus() {
