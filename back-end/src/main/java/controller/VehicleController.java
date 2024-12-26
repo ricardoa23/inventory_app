@@ -3,5 +3,5 @@ package controller;
 import models.Vehicle;
 
 public class VehicleController {
-    private final Vehicle vehicle;
+    //TODO: once models are complete controller needs to turn data in to JSON data
 }

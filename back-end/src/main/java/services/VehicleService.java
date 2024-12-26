@@ -28,5 +28,11 @@ private final VehicleRepository vehicleRepository;
         return vehicleRepository.save(vehicle);
     }
 
+    public Vehicle updateVehicle(Long id, Vehicle vehicle) {
+        return vehicleRepository.findById(id).map(
+                // TODO: Once the model is complete come back and set up this map
+        ).orElse(null)
+    }
+
 
 }

@@ -11,11 +11,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "employee_id")
-    private int employeeId;
+    @Column(nullable = false)
+    private String firstName;
 
     @Column(nullable = false)
-    private String name;
+    private String lastName;
+
+    @Column
+    private String preferredName;
 
     @Column(unique = true)
     private String email;
@@ -37,9 +40,11 @@ public class User {
     public User() {
     }
 
-    public User(int employeeId, String name, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
-        this.employeeId = employeeId;
-        this.name = name;
+    public User(Long id, String firstName, String lastName, String preferredName, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.preferredName = preferredName;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -47,13 +52,26 @@ public class User {
         this.checkouts = checkouts;
     }
 
-    public User(int employeeId, String name, String email, String password, Role role, Department department) {
-        this.employeeId = employeeId;
-        this.name = name;
+    public User(String firstName, String lastName, String preferredName, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.preferredName = preferredName;
         this.email = email;
         this.password = password;
         this.role = role;
         this.department = department;
+        this.checkouts = checkouts;
+    }
+
+    public User(Long id, String firstName, String lastName, String email, String password, Role role, Department department, Set<Checkout> checkouts) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.department = department;
+        this.checkouts = checkouts;
     }
 
     public Long getId() {
@@ -64,20 +82,28 @@ public class User {
         this.id = id;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPreferredName() {
+        return preferredName;
+    }
+
+    public void setPreferredName(String preferredName) {
+        this.preferredName = preferredName;
     }
 
     public String getEmail() {
