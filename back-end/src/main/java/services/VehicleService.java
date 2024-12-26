@@ -20,6 +20,8 @@ private final VehicleRepository vehicleRepository;
     return vehicleRepository.findAll();
     }
 
+    //CRUD for vehicles
+
     public Vehicle getVehicleByID(Long id) {
         return vehicleRepository.findById(id).orElse(null);
     }
@@ -28,10 +30,26 @@ private final VehicleRepository vehicleRepository;
         return vehicleRepository.save(vehicle);
     }
 
-    public Vehicle updateVehicle(Long id, Vehicle vehicle) {
-        return vehicleRepository.findById(id).map(
-                // TODO: Once the model is complete come back and set up this map
-        ).orElse(null)
+    public Vehicle updateVehicle(Long id, Vehicle vehicleDetails) {
+        return vehicleRepository.findById(id).map( vehicle -> {
+            vehicle.setMake(vehicleDetails.getMake());
+            vehicle.setModel(vehicleDetails.getModel());
+            vehicle.setYear(vehicleDetails.getYear());
+            vehicle.setLatestInspection(vehicleDetails.getLatestInspection());
+            vehicle.setNextServiceInspection(vehicleDetails.getNextServiceInspection());
+            vehicle.setAdditionalTrainingRequirements(vehicleDetails.isAdditionalTrainingRequirements());
+            return vehicleRepository.save(vehicle);
+                }
+        ).orElse(null);
+    }
+
+    public boolean deleteVehicle(Long id) {
+        if (vehicleRepository.existsById(id)) {
+            vehicleRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
