@@ -27,6 +27,10 @@ public class UserService extends BaseService<User, Long> {
         existingEntity.setLastName(entityDetails.getLastName());
         existingEntity.setPreferredName(entityDetails.getPreferredName());
         existingEntity.setEmail(entityDetails.getEmail());
-        //TODO: Complete this method
+        existingEntity.setPassword(entityDetails.getPassword());
+        existingEntity.setRole(entityDetails.getRole());
+        existingEntity.setDepartment(entityDetails.getDepartment());
+        existingEntity.setCheckouts(entityDetails.getCheckouts());
+        return existingEntity;
     }
 }
