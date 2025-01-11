@@ -14,7 +14,7 @@ public class NonLethalAmmunition extends AmmunitionBase{
     public NonLethalAmmunition(String category) {
         this.category = category;
     }
-    
+
     public NonLethalAmmunition(Long id, String description, int quantityInStock, String category) {
         super(id, description, quantityInStock);
         this.category = category;
@@ -25,4 +25,11 @@ public class NonLethalAmmunition extends AmmunitionBase{
         this.category = category;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }
