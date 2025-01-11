@@ -21,7 +21,7 @@ public class VehicleService extends BaseService<Vehicle, Long> {
     }
 
     @Override
-    protected  Vehicle updateEntity(Vehicle existingVehicle, Vehicle vehicleDetails) {
+    protected Vehicle updateEntity(Vehicle existingVehicle, Vehicle vehicleDetails) {
         existingVehicle.setMake(vehicleDetails.getMake());
         existingVehicle.setModel(vehicleDetails.getModel());
         existingVehicle.setYear(vehicleDetails.getYear());
