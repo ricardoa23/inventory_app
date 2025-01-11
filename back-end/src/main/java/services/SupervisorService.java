@@ -22,5 +22,6 @@ public class SupervisorService extends BaseService<Supervisor, Long> {
         existingVehicle.setAuthorizationLevel(supervisorDetails.getAuthorizationLevel());
         existingVehicle.setCertifications(supervisorDetails.getCertifications());
         existingVehicle.setSubordinates(supervisorDetails.getSubordinates());
+        return existingVehicle;
     }
 }
