@@ -11,7 +11,7 @@ public class VehicleService extends BaseService<Vehicle, Long> {
     private final VehicleRepository vehicleRepository;
 
     @Autowired
-    public VehicleService (VehicleRepository vehicleRepository) {
+    public VehicleService(VehicleRepository vehicleRepository) {
         this.vehicleRepository =  vehicleRepository;
     }
 
