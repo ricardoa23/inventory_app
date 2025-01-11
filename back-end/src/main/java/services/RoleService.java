@@ -21,5 +21,5 @@ public class RoleService extends BaseService<Role, Long> {
         existingRole.setRoleName(roleDetails.getRoleName());
         return existingRole;
     }
-       
+
 }
