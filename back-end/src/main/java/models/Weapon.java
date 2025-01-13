@@ -1,6 +1,5 @@
 package models;
 
-import enums.ammoType;
 import enums.checkoutStatus;
 import jakarta.persistence.*;
 
@@ -15,17 +14,14 @@ public class Weapon extends Item {
     @Column
     private Boolean lethal;
 
-    @Column(name = "ammo_type")
-    private ammoType ammoType;
 
     public Weapon() {
     }
 
-    public Weapon(String name, String serial_number, checkoutStatus status, Categories categoryId, Department departmentId, Boolean longGun, Boolean lethal, ammoType ammoType) {
+    public Weapon(String name, String serial_number, checkoutStatus status, Categories categoryId, Department departmentId, Boolean longGun, Boolean lethal) {
         super(name, serial_number, status, categoryId, departmentId);
         this.longGun = longGun;
         this.lethal = lethal;
-        this.ammoType = ammoType;
     }
 
     public Boolean getLongGun() {
@@ -44,11 +40,4 @@ public class Weapon extends Item {
         this.lethal = lethal;
     }
 
-    public enums.ammoType getAmmoType() {
-        return ammoType;
-    }
-
-    public void setAmmoType(enums.ammoType ammoType) {
-        this.ammoType = ammoType;
-    }
 }

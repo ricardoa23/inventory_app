@@ -1,6 +1,7 @@
 package models;
 
 import enums.checkoutStatus;
+import enums.itemType;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,7 +28,29 @@ public class Item {
     @JoinColumn(name = "department_id")
     private Department departmentId;
 
+    @Column
+    private itemType itemType;
+
     public Item() {
+    }
+
+    public Item(int id, String name, String serialNumber, checkoutStatus status, Categories categoryId, Department departmentId, enums.itemType itemType) {
+        this.id = id;
+        this.name = name;
+        this.serialNumber = serialNumber;
+        this.status = status;
+        this.categoryId = categoryId;
+        this.departmentId = departmentId;
+        this.itemType = itemType;
+    }
+
+    public Item(String name, String serialNumber, checkoutStatus status, Categories categoryId, Department departmentId, enums.itemType itemType) {
+        this.name = name;
+        this.serialNumber = serialNumber;
+        this.status = status;
+        this.categoryId = categoryId;
+        this.departmentId = departmentId;
+        this.itemType = itemType;
     }
 
     public Item(String name, String serialNumber, checkoutStatus status, Categories categoryId, Department departmentId) {
@@ -37,6 +60,7 @@ public class Item {
         this.categoryId = categoryId;
         this.departmentId = departmentId;
     }
+
 
     public int getId() {
         return id;
@@ -84,5 +108,13 @@ public class Item {
 
     public void setDepartmentId(Department departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public itemType getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(itemType itemType) {
+        this.itemType = itemType;
     }
 }
