@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "NonlethalAmmo")
+@Table(name = "Nonlethal_Ammo")
 public class NonLethalAmmunition extends AmmunitionBase{
     private String category;
 

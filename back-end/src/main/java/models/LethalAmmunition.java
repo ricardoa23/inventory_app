@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "lethalAmmo")
+@Table(name = "lethal_Ammo")
 public class LethalAmmunition extends AmmunitionBase {
     private String caliber;
 
